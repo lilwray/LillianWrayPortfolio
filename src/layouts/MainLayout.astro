@@ -33,51 +33,80 @@ const { title = "Lillian Wray" } = Astro.props;
       text-decoration: none;
     }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px;
+    .site-header {
+      width: 100%;
+      background: #fff;
     }
 
-    nav {
+    .site-nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 90px;
-      font-size: 0.95rem;
+      min-height: 128px;
+      padding: 0 54px;
+      color: #282828;
+      font-size: 1.36rem;
       font-weight: 600;
+    }
+
+    .brand {
+      font-size: 1.78rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
-      gap: 24px;
+      align-items: center;
+      gap: 52px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 90px 40px 40px;
     }
 
     @media (max-width: 700px) {
-      .container {
-        padding: 28px;
+      .site-nav {
+        min-height: 96px;
+        padding: 0 28px;
+        font-size: 1rem;
       }
 
-      nav {
-        margin-bottom: 70px;
+      .brand {
+        font-size: 1.08rem;
+        letter-spacing: 0.16em;
+      }
+
+      .nav-links {
+        gap: 20px;
+      }
+
+      .container {
+        padding: 70px 28px 28px;
       }
     }
   </style>
 
   <body>
-    <div class="container">
-      <nav>
-        <a href="/"><strong>Lillian Wray</strong></a>
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="brand" href="/">Lillian Wray</a>
 
         <div class="nav-links">
           <a href="/">Work</a>
-          <a href="/about">About</a>
           <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
             Resume
           </a>
+          <a href="/about">About</a>
         </div>
       </nav>
+    </header>
 
+    <div class="container">
       <slot />
     </div>
   </body>
