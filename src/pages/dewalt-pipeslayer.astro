@@ -1,0 +1,40 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="PipeSlayer | Lillian Wray">
+  <style>
+    h1 {
+      font-size: clamp(4rem, 8vw, 7rem);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+      margin: 0 0 24px;
+      font-weight: 600;
+    }
+
+    .intro {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 1.15rem;
+      line-height: 1.55;
+      margin-bottom: 60px;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-height: 720px;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+    }
+  </style>
+
+  <h1>PipeSlayer</h1>
+
+  <p class="intro">
+    A reciprocating saw concept designed specifically for plumbers working in
+    tight spaces, wet environments, and overhead cutting positions.
+  </p>
+
+  <img class="hero-image" src="/images/pipeslayer.jpeg" alt="PipeSlayer project" />
+</MainLayout>

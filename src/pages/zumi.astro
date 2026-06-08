@@ -1,0 +1,40 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Zumi | Lillian Wray">
+  <style>
+    h1 {
+      font-size: clamp(4rem, 8vw, 7rem);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+      margin: 0 0 24px;
+      font-weight: 600;
+    }
+
+    .intro {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 1.15rem;
+      line-height: 1.55;
+      margin-bottom: 60px;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-height: 720px;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+    }
+  </style>
+
+  <h1>Zumi</h1>
+
+  <p class="intro">
+    An Arduino-powered enrichment toy designed to encourage indoor cats to
+    chase, pause, and re-engage through randomized laser movement.
+  </p>
+
+  <img class="hero-image" src="/images/zumi.png" alt="Zumi project" />
+</MainLayout>

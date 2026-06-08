@@ -1,11 +1,119 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import MainLayout from "../layouts/MainLayout.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const projects = [
+  {
+    title: "PipeSlayer",
+    subtitle: "A reciprocating saw designed specifically for plumbers.",
+    image: "/images/pipeslayer.jpeg",
+    href: "/dewalt-pipeslayer",
+  },
+  {
+    title: "Vielle",
+    subtitle: "A battery-powered lamp built around light control.",
+    image: "/images/vielle.png",
+    href: "/vielle",
+  },
+  {
+    title: "Zumi",
+    subtitle: "An Arduino-powered enrichment toy for indoor cats.",
+    image: "/images/zumi.png",
+    href: "/zumi",
+  },
+];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<MainLayout title="Lillian Wray">
+  <style>
+    .hero {
+      margin-bottom: 80px;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(4rem, 8vw, 7rem);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+      font-weight: 600;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.55;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      padding-bottom: 80px;
+    }
+
+    .project-image {
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+      border-radius: 16px;
+      background: #d8d8d8;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project p {
+      margin: 14px 0 6px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .project h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: -0.035em;
+    }
+
+    @media (max-width: 900px) {
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .project-image {
+        height: 240px;
+      }
+    }
+  </style>
+
+  <section class="hero">
+    <h1>Industrial designer creating thoughtful products, systems, and experiences.</h1>
+
+    <p>
+      University of Cincinnati Industrial Design student focused on physical
+      products, engineering collaboration, prototyping, and human-centered design.
+    </p>
+  </section>
+
+  <section class="projects">
+    {
+      projects.map((project) => (
+        <a class="project" href={project.href}>
+          <div class="project-image">
+            <img src={project.image} alt={project.title} />
+          </div>
+
+          <p>{project.subtitle}</p>
+          <h2>{project.title}</h2>
+        </a>
+      ))
+    }
+  </section>
+</MainLayout>

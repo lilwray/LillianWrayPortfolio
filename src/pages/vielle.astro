@@ -1,0 +1,41 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Vielle | Lillian Wray">
+  <style>
+    h1 {
+      font-size: clamp(4rem, 8vw, 7rem);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+      margin: 0 0 24px;
+      font-weight: 600;
+    }
+
+    .intro {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 1.15rem;
+      line-height: 1.55;
+      margin-bottom: 60px;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-height: 720px;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+    }
+  </style>
+
+  <h1>Vielle</h1>
+
+  <p class="intro">
+    A battery-powered lamp concept built around rotational light control,
+    allowing the user to shift between diffused ambient light and more direct
+    illumination.
+  </p>
+
+  <img class="hero-image" src="/images/vielle.png" alt="Vielle project" />
+</MainLayout>
