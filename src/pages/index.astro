@@ -86,7 +86,7 @@ const projects = [
 
     .project h2 {
       position: absolute;
-      left: 28px;
+      left: 32px;
       bottom: 28px;
       margin: 0;
       color: #282828;
@@ -100,6 +100,24 @@ const projects = [
         transform 180ms cubic-bezier(0.22, 1, 0.36, 1),
         opacity 180ms ease-in-out;
       z-index: 1;
+    }
+
+    .project-vielle h2 {
+      color: var(--bg);
+    }
+
+    .project-pipeslayer .hover-image {
+      object-fit: contain;
+      object-position: right center;
+    }
+
+    .project-vielle .hover-image {
+      object-position: right center;
+      transform: scaleX(-1) scale(1);
+    }
+
+    .project-zumi .hover-image {
+      object-position: right center;
     }
 
     .project:hover h2,
@@ -121,6 +139,11 @@ const projects = [
     .project:focus-visible .hover-image {
       opacity: 1;
       transform: scale(1.05);
+    }
+
+    .project-vielle:hover .hover-image,
+    .project-vielle:focus-visible .hover-image {
+      transform: scaleX(-1) scale(1.05);
     }
 
     @media (max-width: 900px) {
