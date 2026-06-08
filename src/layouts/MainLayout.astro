@@ -82,6 +82,48 @@ const { title = "Lillian Wray" } = Astro.props;
       padding: 100px 100px 40px;
     }
 
+    .site-footer {
+      border-top: 0.5px solid #000;
+      padding: 68px 40px 82px;
+      text-align: center;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 28px;
+      margin-bottom: 36px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition:
+        transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 360ms ease-in-out;
+    }
+
+    .social-links a:hover {
+      opacity: 0.6;
+      transform: translateY(1px);
+    }
+
+    .social-links img {
+      display: block;
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .site-footer p {
+      margin: 0;
+      color: #777;
+      font-size: 0.96rem;
+      font-weight: 400;
+    }
+
     @media (max-width: 700px) {
       .site-nav {
         min-height: 72px;
@@ -100,6 +142,10 @@ const { title = "Lillian Wray" } = Astro.props;
 
       .container {
         padding: 52px 28px 28px;
+      }
+
+      .site-footer {
+        padding: 52px 28px 64px;
       }
     }
   </style>
@@ -122,5 +168,29 @@ const { title = "Lillian Wray" } = Astro.props;
     <div class="container">
       <slot />
     </div>
+
+    <footer class="site-footer">
+      <div class="social-links" aria-label="Social links">
+        <a
+          href="https://www.instagram.com/lillianwray.design/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <img src="/images/instagram-logo.png" alt="" />
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/lillianwray/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          <img src="/images/linkedin-logo.png" alt="" />
+        </a>
+      </div>
+
+      <p>@ 2026 Lillian Wray&nbsp;&nbsp;|&nbsp;&nbsp;All Rights Reserved</p>
+    </footer>
   </body>
 </html>
