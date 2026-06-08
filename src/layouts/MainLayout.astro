@@ -63,6 +63,15 @@ const { title = "Lillian Wray" } = Astro.props;
       gap: 39px;
     }
 
+    .nav-links a {
+      display: inline-block;
+      transition: transform 180ms ease-in-out;
+    }
+
+    .nav-links a:hover {
+      transform: translateY(2px);
+    }
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
