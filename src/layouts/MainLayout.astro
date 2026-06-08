@@ -15,6 +15,7 @@ const { title = "Lillian Wray" } = Astro.props;
       --bg: #fafafa;
       --text: #282828;
       --muted: #5f5f5f;
+      --page-space: 100px;
     }
 
     * {
@@ -66,18 +67,20 @@ const { title = "Lillian Wray" } = Astro.props;
 
     .nav-links a {
       display: inline-block;
-      transform-origin: center;
-      transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
+      transition:
+        transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 360ms ease-in-out;
     }
 
     .nav-links a:hover {
-      transform: scale(1.08);
+      opacity: 0.65;
+      transform: translateY(1px);
     }
 
     .container {
       max-width: none;
       margin: 0 auto;
-      padding: 100px 100px 40px;
+      padding: var(--page-space);
     }
 
     .site-footer {
@@ -121,6 +124,10 @@ const { title = "Lillian Wray" } = Astro.props;
     }
 
     @media (max-width: 700px) {
+      :root {
+        --page-space: 28px;
+      }
+
       .site-nav {
         min-height: 72px;
         padding: 0 21px;
@@ -134,10 +141,6 @@ const { title = "Lillian Wray" } = Astro.props;
 
       .nav-links {
         gap: 15px;
-      }
-
-      .container {
-        padding: 28px 28px 0;
       }
 
       .site-footer {
