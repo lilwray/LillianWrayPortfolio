@@ -52,7 +52,8 @@ const features = [
     .project-hero-image {
       display: block;
       width: 100%;
-      height: min(42vw, 620px);
+      height: calc(100vh - 96px);
+      min-height: 560px;
       object-fit: cover;
       border-radius: 0;
     }
@@ -338,7 +339,22 @@ const features = [
       display: grid;
       grid-template-columns: 1.35fr 0.65fr;
       gap: var(--content-gap);
-      align-items: start;
+      align-items: stretch;
+    }
+
+    .gallery-grid .media {
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+    .gallery-grid .stack {
+      grid-template-rows: repeat(2, 1fr);
+      height: 100%;
+    }
+
+    .gallery-grid .stack .media {
+      height: 100%;
+      min-height: 0;
     }
 
     .gallery-grid.reversed {
@@ -378,6 +394,7 @@ const features = [
 
       .project-hero-image {
         height: 230px;
+        min-height: 0;
       }
 
       .case-content {
@@ -401,7 +418,10 @@ const features = [
       .matched-media,
       .design-grid .media,
       .design-grid .stack,
-      .design-grid .stack .media {
+      .design-grid .stack .media,
+      .gallery-grid .media,
+      .gallery-grid .stack,
+      .gallery-grid .stack .media {
         height: auto;
       }
 
