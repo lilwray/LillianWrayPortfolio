@@ -39,11 +39,11 @@ const features = [
       --project-space: calc(var(--page-space) * 1.5);
       --content-gap: calc(var(--project-space) * 0.5);
       --image-radius: 8px;
-      --title-size: clamp(2.55rem, 4.6vw, 4rem);
-      --subtitle-size: clamp(1.35rem, 2vw, 2rem);
-      --heading-size: 1.45rem;
-      --body-size: 1rem;
-      --caption-size: 0.82rem;
+      --title-size: clamp(2rem, 3.25vw, 3rem);
+      --subtitle-size: clamp(1.1rem, 1.45vw, 1.42rem);
+      --heading-size: 1.35rem;
+      --body-size: 0.88rem;
+      --caption-size: 0.78rem;
       margin: calc(var(--page-space) * -1);
       font-size: 1rem;
       line-height: 1.45;
@@ -52,7 +52,7 @@ const features = [
     .project-hero-image {
       display: block;
       width: 100%;
-      height: min(52vw, 760px);
+      height: min(42vw, 620px);
       object-fit: cover;
       border-radius: 0;
     }
@@ -101,7 +101,7 @@ const features = [
     .body-copy {
       color: #414141;
       font-size: var(--body-size);
-      font-weight: 400;
+      font-weight: 300;
       line-height: 1.52;
     }
 
@@ -140,12 +140,11 @@ const features = [
       text-transform: uppercase;
     }
 
-    .section-label::before {
+    .section-label::after {
       content: "";
       flex: 1;
       height: 1px;
       background: #282828;
-      order: -1;
     }
 
     .statement {
@@ -161,6 +160,10 @@ const features = [
       font-weight: 800;
     }
 
+    .brand-statement {
+      margin-top: var(--project-space);
+    }
+
     .media {
       display: block;
       width: 100%;
@@ -171,7 +174,7 @@ const features = [
       margin: 10px 0 0;
       color: #3d3d3d;
       font-size: var(--caption-size);
-      font-weight: 400;
+      font-weight: 300;
     }
 
     .caption.right {
@@ -202,13 +205,13 @@ const features = [
 
     .question p {
       margin: 0 0 16px;
-      font-size: 1.1rem;
+      font-size: 1.55rem;
       font-style: italic;
       font-weight: 400;
     }
 
     .question strong {
-      font-size: 1.55rem;
+      font-size: 2.25rem;
       font-weight: 700;
     }
 
@@ -222,6 +225,11 @@ const features = [
     .image-row.strains {
       grid-template-columns: 1.15fr 1fr;
       align-items: center;
+    }
+
+    .matched-media {
+      height: 520px;
+      object-fit: cover;
     }
 
     .method-grid {
@@ -253,9 +261,23 @@ const features = [
       margin-bottom: var(--project-space);
     }
 
+    .design-grid .media {
+      height: 760px;
+      object-fit: cover;
+    }
+
     .stack {
       display: grid;
       gap: var(--content-gap);
+    }
+
+    .design-grid .stack {
+      grid-template-rows: repeat(2, 1fr);
+      height: 760px;
+    }
+
+    .design-grid .stack .media {
+      height: 100%;
     }
 
     .final-intro {
@@ -308,6 +330,7 @@ const features = [
       margin: 0;
       color: #414141;
       font-size: 0.76rem;
+      font-weight: 300;
       line-height: 1.45;
     }
 
@@ -354,7 +377,7 @@ const features = [
       }
 
       .project-hero-image {
-        height: 270px;
+        height: 230px;
       }
 
       .case-content {
@@ -373,6 +396,13 @@ const features = [
       .gallery-grid.reversed {
         grid-template-columns: 1fr;
         gap: var(--page-space);
+      }
+
+      .matched-media,
+      .design-grid .media,
+      .design-grid .stack,
+      .design-grid .stack .media {
+        height: auto;
       }
 
       .hero-rule {
@@ -479,8 +509,8 @@ const features = [
       <h2 class="subhead">Strains on the Job</h2>
 
       <div class="image-row strains">
-        <img class="media" src={image(2)} alt="Image2 placeholder" />
-        <img class="media" src={image(3)} alt="Image3 placeholder" />
+        <img class="media matched-media" src={image(2)} alt="Image2 placeholder" />
+        <img class="media matched-media" src={image(3)} alt="Image3 placeholder" />
       </div>
 
       <p class="statement">
@@ -503,7 +533,7 @@ const features = [
       <section class="project-section">
       <img class="media" src={image(6)} alt="Image6 placeholder" />
 
-      <p class="statement">
+      <p class="statement brand-statement">
         A saw made for plumbers needs a brand that is
         <strong>GUARANTEED TOUGH.</strong>
       </p>
