@@ -36,31 +36,53 @@ const features = [
 <MainLayout title="DEWALT PipeSlayer | Lillian Wray">
   <style>
     .case-study {
-      --minor-gap: 50px;
+      --project-space: calc(var(--page-space) * 1.5);
+      --content-gap: calc(var(--project-space) * 0.5);
       --image-radius: 8px;
+      --title-size: clamp(2.55rem, 4.6vw, 4rem);
+      --subtitle-size: clamp(1.35rem, 2vw, 2rem);
+      --heading-size: 1.45rem;
+      --body-size: 1rem;
+      --caption-size: 0.82rem;
+      margin: calc(var(--page-space) * -1);
       font-size: 1rem;
       line-height: 1.45;
+    }
+
+    .project-hero-image {
+      display: block;
+      width: 100%;
+      height: min(52vw, 760px);
+      object-fit: cover;
+      border-radius: 0;
+    }
+
+    .case-content {
+      padding: var(--project-space);
+    }
+
+    .case-study figure {
+      margin: 0;
     }
 
     .case-hero,
     .project-section,
     .image-row,
     .feature-layout,
-    .gallery-grid,
-    .project-pager {
-      margin-bottom: var(--page-space);
+    .gallery-grid {
+      margin-bottom: var(--project-space);
     }
 
     .case-hero {
       display: grid;
       grid-template-columns: minmax(0, 1.45fr) 1px minmax(260px, 0.65fr);
-      gap: calc(var(--page-space) * 0.85);
+      gap: var(--content-gap);
       align-items: center;
     }
 
     .intro-copy h1 {
       margin: 0;
-      font-size: clamp(2rem, 3.25vw, 3rem);
+      font-size: var(--title-size);
       line-height: 0.98;
       font-weight: 700;
       letter-spacing: -0.035em;
@@ -68,8 +90,8 @@ const features = [
     }
 
     .intro-copy .subtitle {
-      margin: 4px 0 42px;
-      font-size: clamp(1.1rem, 1.45vw, 1.42rem);
+      margin: 6px 0 var(--content-gap);
+      font-size: var(--subtitle-size);
       font-weight: 400;
       line-height: 1.2;
     }
@@ -78,7 +100,7 @@ const features = [
     .detail-list,
     .body-copy {
       color: #414141;
-      font-size: 0.88rem;
+      font-size: var(--body-size);
       font-weight: 400;
       line-height: 1.52;
     }
@@ -110,7 +132,7 @@ const features = [
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: var(--page-space);
+      margin-bottom: var(--project-space);
       color: #6e6e6e;
       font-size: 1rem;
       font-weight: 400;
@@ -127,7 +149,7 @@ const features = [
     }
 
     .statement {
-      margin: 0 auto var(--page-space);
+      margin: 0 auto var(--project-space);
       text-align: center;
       font-size: clamp(1.45rem, 2.4vw, 2.35rem);
       font-weight: 400;
@@ -148,7 +170,7 @@ const features = [
     .caption {
       margin: 10px 0 0;
       color: #3d3d3d;
-      font-size: 0.78rem;
+      font-size: var(--caption-size);
       font-weight: 400;
     }
 
@@ -157,13 +179,13 @@ const features = [
     }
 
     .text-block {
-      margin-top: var(--minor-gap);
+      margin-top: var(--content-gap);
     }
 
     .text-block h2,
     .subhead {
       margin: 0 0 22px;
-      font-size: 1.35rem;
+      font-size: var(--heading-size);
       font-weight: 500;
       line-height: 1.25;
       letter-spacing: -0.015em;
@@ -174,7 +196,7 @@ const features = [
     }
 
     .question {
-      margin-top: var(--page-space);
+      margin-top: var(--project-space);
       text-align: center;
     }
 
@@ -193,7 +215,7 @@ const features = [
     .image-row {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: var(--page-space);
+      gap: var(--content-gap);
       align-items: start;
     }
 
@@ -205,15 +227,15 @@ const features = [
     .method-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: var(--minor-gap);
+      gap: var(--content-gap);
     }
 
     .toolbox-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr)) 1fr;
-      gap: var(--minor-gap);
+      gap: var(--content-gap);
       align-items: center;
-      margin-bottom: var(--page-space);
+      margin-bottom: var(--project-space);
     }
 
     .toolbox-notes {
@@ -226,28 +248,28 @@ const features = [
     .design-grid {
       display: grid;
       grid-template-columns: 2fr 0.82fr;
-      gap: var(--minor-gap);
+      gap: var(--content-gap);
       align-items: start;
-      margin-bottom: var(--page-space);
+      margin-bottom: var(--project-space);
     }
 
     .stack {
       display: grid;
-      gap: var(--minor-gap);
+      gap: var(--content-gap);
     }
 
     .final-intro {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: var(--page-space);
+      gap: var(--content-gap);
       align-items: start;
-      margin-bottom: var(--page-space);
+      margin-bottom: var(--project-space);
     }
 
     .feature-layout {
       display: grid;
       grid-template-columns: 1.25fr 0.95fr;
-      gap: var(--page-space);
+      gap: var(--content-gap);
       align-items: center;
     }
 
@@ -292,7 +314,7 @@ const features = [
     .gallery-grid {
       display: grid;
       grid-template-columns: 1.35fr 0.65fr;
-      gap: var(--minor-gap);
+      gap: var(--content-gap);
       align-items: start;
     }
 
@@ -304,6 +326,7 @@ const features = [
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 0;
       font-size: 1.1rem;
       font-weight: 400;
     }
@@ -321,7 +344,21 @@ const features = [
 
     @media (max-width: 900px) {
       .case-study {
-        --minor-gap: 28px;
+        --project-space: var(--page-space);
+        --content-gap: var(--page-space);
+        --title-size: 2.25rem;
+        --subtitle-size: 1.35rem;
+        --heading-size: 1.25rem;
+        --body-size: 0.96rem;
+        --caption-size: 0.76rem;
+      }
+
+      .project-hero-image {
+        height: 270px;
+      }
+
+      .case-content {
+        padding: var(--page-space);
       }
 
       .case-hero,
@@ -375,32 +412,39 @@ const features = [
   </style>
 
   <article class="case-study">
-    <section class="case-hero">
-      <div class="intro-copy">
-        <h1>DEWALT PipeSlayer</h1>
-        <p class="subtitle">One-Handed Reciprocating Saw</p>
-        <p>
-          The DEWALT PipeSlayer tackles one of plumbing's most frustrating
-          challenges: cutting pipe in hard to reach areas. Compact, balanced,
-          and purpose built, the PipeSlayer gives plumbers the control and power
-          they need without the bulk of traditional saws.
-        </p>
-      </div>
+    <img
+      class="project-hero-image"
+      src="/images/pipeslayer-images/pipeslayer-hero.png"
+      alt="PipeSlayer hero placeholder"
+    />
 
-      <div class="hero-rule" aria-hidden="true"></div>
+    <div class="case-content">
+      <section class="case-hero">
+        <div class="intro-copy">
+          <h1>DEWALT PipeSlayer</h1>
+          <p class="subtitle">One-Handed Reciprocating Saw</p>
+          <p>
+            The DEWALT PipeSlayer tackles one of plumbing's most frustrating
+            challenges: cutting pipe in hard to reach areas. Compact, balanced,
+            and purpose built, the PipeSlayer gives plumbers the control and
+            power they need without the bulk of traditional saws.
+          </p>
+        </div>
 
-      <div class="detail-list">
-        <p>
-          12 Week Studio Project<br />
-          University of Cincinnati<br />
-          Professors John Dixon and Mike Rowe
-        </p>
-        <p>Skills: Fusion360, Digital Rendering, Foam Prototyping</p>
-      </div>
-    </section>
+        <div class="hero-rule" aria-hidden="true"></div>
 
-    <section class="project-section">
-      <div class="section-label">01. Research</div>
+        <div class="detail-list">
+          <p>
+            12 Week Studio Project<br />
+            University of Cincinnati<br />
+            Professors John Dixon and Mike Rowe
+          </p>
+          <p>Skills: Fusion360, Digital Rendering, Foam Prototyping</p>
+        </div>
+      </section>
+
+      <section class="project-section">
+        <div class="section-label">01. Research</div>
 
       <p class="statement">No two jobsites are the same.</p>
 
@@ -429,9 +473,9 @@ const features = [
         <p>What is your most frequent task?</p>
         <strong>Cuttin' pipe.</strong>
       </div>
-    </section>
+      </section>
 
-    <section class="project-section">
+      <section class="project-section">
       <h2 class="subhead">Strains on the Job</h2>
 
       <div class="image-row strains">
@@ -454,9 +498,9 @@ const features = [
           <figcaption class="caption">Chain Snap</figcaption>
         </figure>
       </div>
-    </section>
+      </section>
 
-    <section class="project-section">
+      <section class="project-section">
       <img class="media" src={image(6)} alt="Image6 placeholder" />
 
       <p class="statement">
@@ -505,9 +549,9 @@ const features = [
           <img class="media" src={image(12)} alt="Image12 placeholder" />
         </div>
       </div>
-    </section>
+      </section>
 
-    <section class="project-section">
+      <section class="project-section">
       <div class="section-label">02. Final Design</div>
 
       <div class="final-intro">
@@ -554,11 +598,12 @@ const features = [
       </div>
 
       <img class="media" src={image(21)} alt="Image21 placeholder" />
-    </section>
+      </section>
 
-    <nav class="project-pager" aria-label="Project pagination">
-      <a href="/zumi">‹ Zumi</a>
-      <a href="/vielle">Vielle ›</a>
-    </nav>
+      <nav class="project-pager" aria-label="Project pagination">
+        <a href="/zumi">‹ Zumi</a>
+        <a href="/vielle">Vielle ›</a>
+      </nav>
+    </div>
   </article>
 </MainLayout>
