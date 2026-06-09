@@ -1,40 +1,564 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+
+const image = (number) => `/images/pipeslayer-images/Image${number}.png`;
+
+const toolbox = [
+  ["Image7", "One-Handed Reciprocating Saw"],
+  ["Image8", "Impact Driver"],
+  ["Image9", "MegaPress"],
+];
+
+const features = [
+  {
+    number: "1",
+    title: "Flexible Shoe",
+    text: "Adjusts to pipe angle and surface contour for cleaner cuts in tight or awkward spaces.",
+  },
+  {
+    number: "2",
+    title: "PTFE Vent Membranes",
+    text: "Protects internal components from water and debris while allowing airflow to prevent overheating.",
+  },
+  {
+    number: "3",
+    title: "Lock",
+    text: "Simple, one-handed latch makes blade changes quick and secure, even when the tool is wet.",
+  },
+  {
+    number: "4",
+    title: "Bumpers",
+    text: "Shock absorbing overmold lessens impact damage and protects surrounding finishes in tight installs.",
+  },
+];
 ---
 
-<MainLayout title="PipeSlayer | Lillian Wray">
+<MainLayout title="DEWALT PipeSlayer | Lillian Wray">
   <style>
-    h1 {
-      font-size: clamp(4rem, 8vw, 7rem);
-      line-height: 0.9;
-      letter-spacing: -0.055em;
-      margin: 0 0 24px;
+    .case-study {
+      --minor-gap: 50px;
+      --image-radius: 8px;
+      font-size: 1rem;
+      line-height: 1.45;
+    }
+
+    .case-hero,
+    .project-section,
+    .image-row,
+    .feature-layout,
+    .gallery-grid,
+    .project-pager {
+      margin-bottom: var(--page-space);
+    }
+
+    .case-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) 1px minmax(260px, 0.65fr);
+      gap: calc(var(--page-space) * 0.85);
+      align-items: center;
+    }
+
+    .intro-copy h1 {
+      margin: 0;
+      font-size: clamp(2rem, 3.25vw, 3rem);
+      line-height: 0.98;
+      font-weight: 700;
+      letter-spacing: -0.035em;
+      text-transform: uppercase;
+    }
+
+    .intro-copy .subtitle {
+      margin: 4px 0 42px;
+      font-size: clamp(1.1rem, 1.45vw, 1.42rem);
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    .intro-copy p,
+    .detail-list,
+    .body-copy {
+      color: #414141;
+      font-size: 0.88rem;
+      font-weight: 400;
+      line-height: 1.52;
+    }
+
+    .intro-copy p {
+      max-width: 680px;
+      margin: 0;
+    }
+
+    .hero-rule {
+      width: 1px;
+      height: 170px;
+      background: #282828;
+    }
+
+    .detail-list {
+      margin: 0;
+    }
+
+    .detail-list p {
+      margin: 0 0 26px;
+    }
+
+    .detail-list p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: var(--page-space);
+      color: #6e6e6e;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .section-label::before {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #282828;
+      order: -1;
+    }
+
+    .statement {
+      margin: 0 auto var(--page-space);
+      text-align: center;
+      font-size: clamp(1.45rem, 2.4vw, 2.35rem);
+      font-weight: 400;
+      line-height: 1.22;
+      letter-spacing: -0.02em;
+    }
+
+    .statement strong {
+      font-weight: 800;
+    }
+
+    .media {
+      display: block;
+      width: 100%;
+      border-radius: var(--image-radius);
+    }
+
+    .caption {
+      margin: 10px 0 0;
+      color: #3d3d3d;
+      font-size: 0.78rem;
+      font-weight: 400;
+    }
+
+    .caption.right {
+      text-align: right;
+    }
+
+    .text-block {
+      margin-top: var(--minor-gap);
+    }
+
+    .text-block h2,
+    .subhead {
+      margin: 0 0 22px;
+      font-size: 1.35rem;
+      font-weight: 500;
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+    }
+
+    .body-copy {
+      margin: 0;
+    }
+
+    .question {
+      margin-top: var(--page-space);
+      text-align: center;
+    }
+
+    .question p {
+      margin: 0 0 16px;
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .question strong {
+      font-size: 1.55rem;
+      font-weight: 700;
+    }
+
+    .image-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--page-space);
+      align-items: start;
+    }
+
+    .image-row.strains {
+      grid-template-columns: 1.15fr 1fr;
+      align-items: center;
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--minor-gap);
+    }
+
+    .toolbox-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) 1fr;
+      gap: var(--minor-gap);
+      align-items: center;
+      margin-bottom: var(--page-space);
+    }
+
+    .toolbox-notes {
+      color: #282828;
+      font-size: 1.02rem;
+      font-weight: 400;
+      line-height: 1.45;
+    }
+
+    .design-grid {
+      display: grid;
+      grid-template-columns: 2fr 0.82fr;
+      gap: var(--minor-gap);
+      align-items: start;
+      margin-bottom: var(--page-space);
+    }
+
+    .stack {
+      display: grid;
+      gap: var(--minor-gap);
+    }
+
+    .final-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--page-space);
+      align-items: start;
+      margin-bottom: var(--page-space);
+    }
+
+    .feature-layout {
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: var(--page-space);
+      align-items: center;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 24px;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 18px;
+    }
+
+    .feature-number {
+      display: inline-flex;
+      width: 24px;
+      height: 24px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #000;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .feature h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
       font-weight: 600;
     }
 
-    .intro {
-      max-width: 700px;
-      color: var(--muted);
-      font-size: 1.15rem;
-      line-height: 1.55;
-      margin-bottom: 60px;
+    .feature p {
+      margin: 0;
+      color: #414141;
+      font-size: 0.76rem;
+      line-height: 1.45;
     }
 
-    .hero-image {
-      width: 100%;
-      max-height: 720px;
-      object-fit: cover;
-      border-radius: 18px;
-      display: block;
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: var(--minor-gap);
+      align-items: start;
+    }
+
+    .gallery-grid.reversed {
+      grid-template-columns: 0.6fr 1.4fr;
+    }
+
+    .project-pager {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.1rem;
+      font-weight: 400;
+    }
+
+    .project-pager a {
+      transition:
+        transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
+        opacity 360ms ease-in-out;
+    }
+
+    .project-pager a:hover {
+      opacity: 0.65;
+      transform: translateY(1px);
+    }
+
+    @media (max-width: 900px) {
+      .case-study {
+        --minor-gap: 28px;
+      }
+
+      .case-hero,
+      .image-row,
+      .image-row.strains,
+      .method-grid,
+      .toolbox-grid,
+      .design-grid,
+      .final-intro,
+      .feature-layout,
+      .gallery-grid,
+      .gallery-grid.reversed {
+        grid-template-columns: 1fr;
+        gap: var(--page-space);
+      }
+
+      .hero-rule {
+        width: 100%;
+        height: 1px;
+      }
+
+      .intro-copy .subtitle {
+        margin-bottom: 28px;
+      }
+
+      .section-label {
+        margin-bottom: var(--page-space);
+        font-size: 0.82rem;
+      }
+
+      .statement {
+        text-align: left;
+      }
+
+      .caption.right {
+        text-align: left;
+      }
+
+      .toolbox-grid {
+        align-items: start;
+      }
+
+      .feature-layout {
+        align-items: start;
+      }
+
+      .project-pager {
+        font-size: 1rem;
+      }
     }
   </style>
 
-  <h1>PipeSlayer</h1>
+  <article class="case-study">
+    <section class="case-hero">
+      <div class="intro-copy">
+        <h1>DEWALT PipeSlayer</h1>
+        <p class="subtitle">One-Handed Reciprocating Saw</p>
+        <p>
+          The DEWALT PipeSlayer tackles one of plumbing's most frustrating
+          challenges: cutting pipe in hard to reach areas. Compact, balanced,
+          and purpose built, the PipeSlayer gives plumbers the control and power
+          they need without the bulk of traditional saws.
+        </p>
+      </div>
 
-  <p class="intro">
-    A reciprocating saw concept designed specifically for plumbers working in
-    tight spaces, wet environments, and overhead cutting positions.
-  </p>
+      <div class="hero-rule" aria-hidden="true"></div>
 
-  <img class="hero-image" src="/images/pipeslayer.jpeg" alt="PipeSlayer project" />
+      <div class="detail-list">
+        <p>
+          12 Week Studio Project<br />
+          University of Cincinnati<br />
+          Professors John Dixon and Mike Rowe
+        </p>
+        <p>Skills: Fusion360, Digital Rendering, Foam Prototyping</p>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <div class="section-label">01. Research</div>
+
+      <p class="statement">No two jobsites are the same.</p>
+
+      <figure>
+        <img class="media" src={image(1)} alt="Image1 placeholder" />
+        <figcaption class="caption right">
+          Linda, CMPA plumber and board member
+        </figcaption>
+      </figure>
+
+      <div class="text-block">
+        <h2>The Life of a Plumber</h2>
+        <p class="body-copy">
+          Plumbers work in some of the toughest environments: tight crawl
+          spaces, flooded basements, and behind fragile finishes. Their tools
+          must be as durable and adaptable as they are. <strong>Limited truck
+          space, constant water exposure, and unpredictable conditions</strong>
+          make compact, reliable tools a necessity. Linda has been in the trade
+          for over 20 years. She emphasized how her tools take a beating, from
+          corrosion to repeated drops, and how reliability often matters more
+          than comfort or brand.
+        </p>
+      </div>
+
+      <div class="question">
+        <p>What is your most frequent task?</p>
+        <strong>Cuttin' pipe.</strong>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2 class="subhead">Strains on the Job</h2>
+
+      <div class="image-row strains">
+        <img class="media" src={image(2)} alt="Image2 placeholder" />
+        <img class="media" src={image(3)} alt="Image3 placeholder" />
+      </div>
+
+      <p class="statement">
+        Why is cutting pipe <em>still</em> such a challenge?
+      </p>
+
+      <h2 class="subhead">Standard Pipe Cutting Methods</h2>
+      <div class="method-grid">
+        <figure>
+          <img class="media" src={image(4)} alt="Image4 placeholder" />
+          <figcaption class="caption">Reciprocating Saw</figcaption>
+        </figure>
+        <figure>
+          <img class="media" src={image(5)} alt="Image5 placeholder" />
+          <figcaption class="caption">Chain Snap</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <img class="media" src={image(6)} alt="Image6 placeholder" />
+
+      <p class="statement">
+        A saw made for plumbers needs a brand that is
+        <strong>GUARANTEED TOUGH.</strong>
+      </p>
+
+      <h2 class="subhead">Current DEWALT Toolbox</h2>
+      <div class="toolbox-grid">
+        {
+          toolbox.map(([fileName, caption]) => (
+            <figure>
+              <img
+                class="media"
+                src={`/images/pipeslayer-images/${fileName}.png`}
+                alt={`${fileName} placeholder`}
+              />
+              <figcaption class="caption">{caption}</figcaption>
+            </figure>
+          ))
+        }
+
+        <div class="toolbox-notes">
+          Component-Dominant<br />
+          Color Defined Grip<br />
+          Aluminum Front Housing<br />
+          Logo Placement<br />
+          Trigger + Lock<br />
+          Battery Transition
+        </div>
+      </div>
+
+      <h2 class="subhead">Design Exploration</h2>
+      <div class="design-grid">
+        <figure>
+          <img class="media" src={image(10)} alt="Image10 placeholder" />
+          <figcaption class="caption">
+            Going back and forth between CAD and sketching allowed me to dive
+            deeply into DEWALT's brand language and make quick direction
+            changes.
+          </figcaption>
+        </figure>
+
+        <div class="stack">
+          <img class="media" src={image(11)} alt="Image11 placeholder" />
+          <img class="media" src={image(12)} alt="Image12 placeholder" />
+        </div>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <div class="section-label">02. Final Design</div>
+
+      <div class="final-intro">
+        <div>
+          <h2 class="subhead">PipeSlayer</h2>
+          <p class="body-copy">A pipe cutting saw made for plumbers.</p>
+        </div>
+
+        <img class="media" src={image(13)} alt="Image13 placeholder" />
+      </div>
+
+      <div class="feature-layout">
+        <img class="media" src={image(14)} alt="Image14 placeholder" />
+
+        <div class="feature-list">
+          {
+            features.map((feature) => (
+              <div class="feature">
+                <span class="feature-number">{feature.number}</span>
+                <div>
+                  <h3>{feature.title}</h3>
+                  <p>{feature.text}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="gallery-grid">
+        <img class="media" src={image(15)} alt="Image15 placeholder" />
+        <div class="stack">
+          <img class="media" src={image(16)} alt="Image16 placeholder" />
+          <img class="media" src={image(17)} alt="Image17 placeholder" />
+        </div>
+      </div>
+
+      <div class="gallery-grid reversed">
+        <div class="stack">
+          <img class="media" src={image(18)} alt="Image18 placeholder" />
+          <img class="media" src={image(19)} alt="Image19 placeholder" />
+        </div>
+        <img class="media" src={image(20)} alt="Image20 placeholder" />
+      </div>
+
+      <img class="media" src={image(21)} alt="Image21 placeholder" />
+    </section>
+
+    <nav class="project-pager" aria-label="Project pagination">
+      <a href="/zumi">‹ Zumi</a>
+      <a href="/vielle">Vielle ›</a>
+    </nav>
+  </article>
 </MainLayout>
