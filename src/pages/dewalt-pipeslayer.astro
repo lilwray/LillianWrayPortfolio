@@ -1,12 +1,17 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 
-const image = (number) => `/images/pipeslayer-images/Image${number}.png`;
+const imageExtensions = {
+  17: "jpeg",
+};
+
+const image = (number) =>
+  `/images/pipeslayer-images/image${number}.${imageExtensions[number] ?? "png"}`;
 
 const toolbox = [
-  ["Image7", "One-Handed Reciprocating Saw"],
-  ["Image8", "Impact Driver"],
-  ["Image9", "MegaPress"],
+  [7, "One-Handed Reciprocating Saw"],
+  [8, "Impact Driver"],
+  [9, "MegaPress"],
 ];
 
 const features = [
@@ -561,12 +566,12 @@ const features = [
       <h2 class="subhead">Current DEWALT Toolbox</h2>
       <div class="toolbox-grid">
         {
-          toolbox.map(([fileName, caption]) => (
+          toolbox.map(([number, caption]) => (
             <figure>
               <img
                 class="media"
-                src={`/images/pipeslayer-images/${fileName}.png`}
-                alt={`${fileName} placeholder`}
+                src={image(number)}
+                alt={`Image${number}`}
               />
               <figcaption class="caption">{caption}</figcaption>
             </figure>
