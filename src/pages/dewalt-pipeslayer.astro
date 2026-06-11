@@ -170,6 +170,10 @@ const features = [
       letter-spacing: -0.02em;
     }
 
+    .research-statement {
+      margin-top: var(--project-space);
+    }
+
     .statement strong {
       font-weight: 800;
     }
@@ -261,14 +265,15 @@ const features = [
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr)) 1fr;
       gap: var(--content-gap);
-      align-items: center;
+      align-items: start;
       margin-bottom: var(--project-space);
     }
 
     .toolbox-notes {
+      align-self: center;
       color: #282828;
       font-size: 1.02rem;
-      font-weight: 400;
+      font-weight: 600;
       line-height: 1.45;
     }
 
@@ -517,7 +522,7 @@ const features = [
       <section class="project-section">
         <div class="section-label">01. Research</div>
 
-      <p class="statement">No two jobsites are the same.</p>
+      <p class="statement research-statement">No two jobsites are the same.</p>
 
       <figure>
         <img class="media" src={image(1)} alt="Image1 placeholder" />
