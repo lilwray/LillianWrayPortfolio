@@ -170,6 +170,10 @@ const features = [
       letter-spacing: -0.02em;
     }
 
+    .research-statement {
+      margin-top: calc(var(--project-space) * 0.36);
+    }
+
     .statement strong {
       font-weight: 800;
     }
@@ -385,12 +389,17 @@ const features = [
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-top: calc(var(--project-space) * -0.35);
       margin-bottom: 0;
-      font-size: 1.1rem;
-      font-weight: 400;
+      color: #282828;
+      font-size: clamp(1.45rem, 2vw, 2rem);
+      font-weight: 500;
+      line-height: 1;
     }
 
     .project-pager a {
+      color: inherit;
+      text-decoration: none;
       transition:
         transform 360ms cubic-bezier(0.22, 1, 0.36, 1),
         opacity 360ms ease-in-out;
@@ -466,6 +475,10 @@ const features = [
         text-align: left;
       }
 
+      .research-statement {
+        margin-top: var(--page-space);
+      }
+
       .caption.right {
         text-align: left;
       }
@@ -479,7 +492,8 @@ const features = [
       }
 
       .project-pager {
-        font-size: 1rem;
+        margin-top: 0;
+        font-size: 1.25rem;
       }
     }
   </style>
@@ -519,7 +533,7 @@ const features = [
       <section class="project-section">
         <div class="section-label">01. Research</div>
 
-      <p class="statement">No two jobsites are the same.</p>
+      <p class="statement research-statement">No two jobsites are the same.</p>
 
       <figure>
         <img class="media" src={image(1)} alt="Image1 placeholder" />
@@ -678,8 +692,8 @@ const features = [
       </section>
 
       <nav class="project-pager" aria-label="Project pagination">
-        <a href="/zumi">‹ Zumi</a>
-        <a href="/vielle">Vielle ›</a>
+        <a href="/zumi">〈 Zumi</a>
+        <a href="/vielle">Vielle 〉</a>
       </nav>
     </div>
   </article>
