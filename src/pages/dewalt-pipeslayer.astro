@@ -44,10 +44,10 @@ const features = [
       --project-space: calc(var(--page-space) * 1.5);
       --content-gap: calc(var(--project-space) * 0.5);
       --image-radius: 8px;
-      --title-size: clamp(2rem, 3.25vw, 3rem);
-      --subtitle-size: clamp(1.1rem, 1.45vw, 1.42rem);
+      --title-size: clamp(2rem, 3vw, 2.86rem);
+      --subtitle-size: clamp(1.08rem, 1.36vw, 1.34rem);
       --heading-size: 1.35rem;
-      --body-size: 0.88rem;
+      --body-size: 0.82rem;
       --caption-size: 1rem;
       margin: calc(var(--page-space) * -1);
       font-size: 1rem;
@@ -80,8 +80,12 @@ const features = [
     }
 
     .case-hero {
+      margin-bottom: calc(var(--project-space) * 0.68);
+    }
+
+    .case-hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.45fr) 1px minmax(260px, 0.65fr);
+      grid-template-columns: minmax(0, 1.45fr) 0.5px minmax(260px, 0.65fr);
       gap: var(--content-gap);
       align-items: center;
     }
@@ -96,7 +100,7 @@ const features = [
     }
 
     .intro-copy .subtitle {
-      margin: 6px 0 var(--content-gap);
+      margin: 6px 0 calc(var(--content-gap) * 0.9);
       font-size: var(--subtitle-size);
       font-weight: 400;
       line-height: 1.2;
@@ -112,14 +116,14 @@ const features = [
     }
 
     .intro-copy p {
-      max-width: 680px;
+      max-width: 660px;
       margin: 0;
     }
 
     .hero-rule {
-      width: 1px;
+      width: 0.5px;
       height: 170px;
-      background: #282828;
+      background: rgba(0, 0, 0, 0.55);
     }
 
     .detail-list {
@@ -135,22 +139,22 @@ const features = [
     }
 
     .section-label {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      display: block;
       margin-bottom: var(--project-space);
       color: #6e6e6e;
-      font-size: 1rem;
-      font-weight: 400;
+      font-size: 0.94rem;
+      font-weight: 300;
       letter-spacing: 0.16em;
       text-transform: uppercase;
     }
 
-    .section-label::after {
+    .section-label::before {
       content: "";
-      flex: 1;
-      height: 1px;
-      background: #282828;
+      display: block;
+      width: 100%;
+      height: 0.5px;
+      margin-bottom: 18px;
+      background: rgba(0, 0, 0, 0.55);
     }
 
     .statement {
