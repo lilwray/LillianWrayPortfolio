@@ -47,7 +47,7 @@ const features = [
       --title-size: clamp(2rem, 3vw, 2.86rem);
       --subtitle-size: clamp(1.08rem, 1.36vw, 1.34rem);
       --heading-size: 1.35rem;
-      --body-size: 0.82rem;
+      --body-size: 1rem;
       --caption-size: 1rem;
       margin: calc(var(--page-space) * -1);
       font-size: 1rem;
@@ -64,7 +64,7 @@ const features = [
     }
 
     .case-content {
-      padding: var(--project-space);
+      padding: var(--page-space) var(--project-space) var(--project-space);
     }
 
     .case-study figure {
@@ -80,7 +80,9 @@ const features = [
     }
 
     .case-hero {
-      margin-bottom: calc(var(--project-space) * 0.68);
+      margin-right: calc(var(--page-space) - var(--project-space));
+      margin-bottom: var(--page-space);
+      margin-left: calc(var(--page-space) - var(--project-space));
     }
 
     .case-hero {
@@ -140,7 +142,9 @@ const features = [
 
     .section-label {
       display: block;
+      margin-right: calc(var(--page-space) - var(--project-space));
       margin-bottom: var(--project-space);
+      margin-left: calc(var(--page-space) - var(--project-space));
       color: #6e6e6e;
       font-size: 0.94rem;
       font-weight: 300;
@@ -402,8 +406,8 @@ const features = [
         --title-size: 2.25rem;
         --subtitle-size: 1.35rem;
         --heading-size: 1.25rem;
-        --body-size: 0.96rem;
-        --caption-size: 0.76rem;
+        --body-size: 1rem;
+        --caption-size: 1rem;
       }
 
       .project-hero-image {
@@ -450,7 +454,9 @@ const features = [
       }
 
       .section-label {
+        margin-right: 0;
         margin-bottom: var(--page-space);
+        margin-left: 0;
         font-size: 0.82rem;
       }
 
