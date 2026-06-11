@@ -64,7 +64,7 @@ const features = [
     }
 
     .case-content {
-      padding: var(--page-space) var(--project-space) var(--project-space);
+      padding: var(--page-space) var(--project-space) var(--page-space);
     }
 
     .case-study figure {
@@ -161,6 +161,10 @@ const features = [
       background: rgba(0, 0, 0, 0.55);
     }
 
+    .research-label {
+      margin-bottom: calc(var(--project-space) - 20px);
+    }
+
     .statement {
       margin: 0 auto var(--project-space);
       text-align: center;
@@ -168,10 +172,6 @@ const features = [
       font-weight: 400;
       line-height: 1.22;
       letter-spacing: -0.02em;
-    }
-
-    .research-statement {
-      margin-top: calc((var(--project-space) * 0.36) - 20px);
     }
 
     .statement strong {
@@ -542,9 +542,9 @@ const features = [
       </section>
 
       <section class="project-section">
-        <div class="section-label">01. Research</div>
+        <div class="section-label research-label">01. Research</div>
 
-      <p class="statement research-statement">No two jobsites are the same.</p>
+      <p class="statement">No two jobsites are the same.</p>
 
       <figure>
         <img class="media" src={image(1)} alt="Image1 placeholder" />
