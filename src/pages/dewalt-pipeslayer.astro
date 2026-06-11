@@ -171,7 +171,7 @@ const features = [
     }
 
     .research-statement {
-      margin-top: calc(var(--project-space) * 0.36);
+      margin-top: calc((var(--project-space) * 0.36) - 20px);
     }
 
     .statement strong {
@@ -389,8 +389,10 @@ const features = [
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-right: calc(var(--page-space) - var(--project-space));
       margin-top: calc(var(--project-space) * -0.35);
       margin-bottom: 0;
+      margin-left: calc(var(--page-space) - var(--project-space));
       color: #282828;
       font-size: clamp(1.45rem, 2vw, 2rem);
       font-weight: 500;
@@ -407,7 +409,14 @@ const features = [
 
     .project-pager a:hover {
       opacity: 0.65;
-      transform: translateY(1px);
+    }
+
+    .project-pager a:first-child:hover {
+      transform: translateX(-6px);
+    }
+
+    .project-pager a:last-child:hover {
+      transform: translateX(6px);
     }
 
     @media (max-width: 900px) {
@@ -492,7 +501,9 @@ const features = [
       }
 
       .project-pager {
+        margin-right: 0;
         margin-top: 0;
+        margin-left: 0;
         font-size: 1.25rem;
       }
     }
@@ -692,8 +703,8 @@ const features = [
       </section>
 
       <nav class="project-pager" aria-label="Project pagination">
-        <a href="/zumi">〈 Zumi</a>
-        <a href="/vielle">Vielle 〉</a>
+        <a href="/zumi">‹ Zumi</a>
+        <a href="/vielle">Vielle ›</a>
       </nav>
     </div>
   </article>
