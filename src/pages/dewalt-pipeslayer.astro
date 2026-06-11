@@ -229,13 +229,18 @@ const features = [
     }
 
     .image-row.strains {
-      grid-template-columns: 1.15fr 1fr;
+      --strain-image-height: 520px;
+      grid-template-columns: var(--strain-image-height) minmax(0, 1fr);
       align-items: center;
     }
 
     .matched-media {
       height: 520px;
       object-fit: cover;
+    }
+
+    .strain-diagram {
+      object-fit: contain;
     }
 
     .method-grid {
@@ -421,6 +426,7 @@ const features = [
       }
 
       .matched-media,
+      .image-row.strains,
       .design-grid .media,
       .design-grid .stack,
       .design-grid .stack .media,
@@ -535,7 +541,11 @@ const features = [
 
       <div class="image-row strains">
         <img class="media matched-media" src={image(2)} alt="Image2 placeholder" />
-        <img class="media matched-media" src={image(3)} alt="Image3 placeholder" />
+        <img
+          class="media matched-media strain-diagram"
+          src={image(3)}
+          alt="Image3 placeholder"
+        />
       </div>
 
       <p class="statement">
